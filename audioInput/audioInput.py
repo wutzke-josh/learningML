@@ -1,7 +1,5 @@
 import alsaaudio, time
 
-import matplotlib.pyplot as plt
-
 import os
 
 audio = alsaaudio.PCM(alsaaudio.PCM_CAPTURE)
@@ -22,6 +20,12 @@ with open("helloSamples", "wb") as sounds:
             l, raw = audio.read()
             # audio.pause(1)
             sounds.write(raw)
+        n=5
+        for k in range(1, 201):
+            audio.read()
+            if not (k % 40):
+                print(n)
+                n -= 1
 
 
 
